@@ -1,23 +1,33 @@
 {
   "canisters": {
-    "backend": {
-      "main": "backend/app.mo",
-      "type": "motoko",
-      "args": "--enhanced-orthogonal-persistence"
+    "BlockAcademia_backend": {
+      "main": "src/BlockAcademia_backend/main.mo",
+      "type": "motoko"
     },
-    "frontend": {
-      "dependencies": ["backend"],
-      "frontend": {
-        "entrypoint": "frontend/index.html"
-      },
-      "source": ["frontend/dist"],
-      "type": "assets"
+
+    "BlockAcademia_dao" : {
+      "main": "src/BlockAcademia_backend/Dao.mo",
+      "type": "motoko"
+    }, 
+  
+    "BlockAcademia_frontend": {
+      "source": [
+        "src/BlockAcademia_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "BlockAcademia_frontend"
+    },
+    
+    "internet_identity" : {
+      "type": "pull",
+      "id": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": ""
     }
   },
   "output_env_file": ".env",
-  "defaults": {
-    "build": {
-      "packtool": "mops sources"
-    }
-  }
+  "version": 1
 }
